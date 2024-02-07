@@ -1,0 +1,51 @@
+<div th:fragment="cabecera">
+	<header>
+		<div id="header_izq">
+			<img th:src="@{/images/gato_1.webp}" alt="Gatito" width="120px" height="120px">
+		</div>
+
+		<div id="header_centro">
+			<h1>WildLife</h1>
+		</div>
+
+		<div id="header_der">
+			<img th:src="@{/images/perro_1.webp}" alt="Perro" width="120px" height="120px">
+		</div>
+
+
+	</header>
+
+
+</div>
+
+<div th:fragment="menu">
+	<nav id="menu">
+		<ul>
+			<li>
+				<a href="menu_inicio" class="enlace_menu">Inicio</a>
+			</li>
+			<li>
+				<a href="menu_perros" class="enlace_menu">Perros</a>
+			</li>
+			<li>
+				<a href="menu_gatos" class="enlace_menu">Gatos</a>
+			</li>
+			<li>
+				<a href="menu_conejos" class="enlace_menu">Conejos</a>
+			</li>
+			<li>
+				<a href="menu_pajaros" class="enlace_menu">Pajaros</a>
+			</li>
+			<li>
+				<a href="menu_tortugas" class="enlace_menu">Tortugas</a>
+			</li>
+		</ul>
+
+	</nav>
+</div>
+
+<div th:fragment="pie">
+	<footer>
+		<p>Designed by: Jabril</p>
+	</footer>
+</div>

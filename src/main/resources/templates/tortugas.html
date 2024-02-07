@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="styles_grid.css">
+	<title>WildLife Tortugas</title>
+</head>
+
+<body>
+	<div th:include="plantilla.html::cabecera"></div>
+
+	<main>
+		<section class="contenedor_grid">
+			<aside>
+
+				<div th:include="plantilla.html::menu"> </div>
+			</aside>
+
+
+
+			<article th:each="elemento : ${atr_lista_mascotas}">
+				<h2 th:text="${elemento.nombre}"></h2>
+
+				<img th:src="@{'images/mascotas/' + ${elemento.foto}}" alt="" height="200px" width="100%">
+				<p th:text="${elemento.especie.especie}"></p>
+
+				<p th:text="${elemento.edad} + ' Años'"></p>
+
+				<p th:text="'Descripción: ' + ${elemento.descripcion}">descripcion del juego</p>
+
+				<p th:text="'Lugar: ' + ${elemento.provincia.provincia}"></p>
+
+			</article>
+
+		</section>
+	</main>
+
+	<div th:include="plantilla.html::pie"></div>
+</body>
+
+</html>

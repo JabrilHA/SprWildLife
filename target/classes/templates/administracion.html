@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="styles_admin.css">
+	<title>Administración</title>
+</head>
+
+<body>
+
+	<div th:include="plantilla.html::cabecera"></div>
+
+	<main class="main_formulario">
+
+		<form th:action="@{/guardarMascota}" th:object="${objeto_entidad}" method="post">
+			<label for="nombre">Nombre</label>
+			<input type="text" th:field="*{nombre}" name="nombre" placeholder="Nombre" required>
+			<br>
+			<label for="descripcion">Descripción</label>
+			<input type="text" th:field="*{descripcion}" name="descripcion" placeholder="Descripción" required>
+			<br>
+			<label for="edad">Edad</label>
+			<input type="text" th:field="*{edad}" id="edad" name="edad" required placeholder="Edad" pattern="^[0-9]+$">
+			<br>
+			<label for="foto">Foto</label>
+			<input type="text" th:field="*{foto}" name="foto" placeholder="Nombre Foto" required>
+			<br>
+			<label for="especie_id">Especie</label>
+			<select name="especie.id" th:field="*{especie.id}">
+				<option th:each="elemento : ${atr_lista_especies}" th:value="${elemento.id}"
+					th:text="${elemento.especie}">
+				</option>
+			</select>
+			<br>
+			<label for="especie_id">Provincia</label>
+			<select name="provincia.id" th:field="*{provincia.id}">
+				<option th:each="elemento :${atr_lista_provincias}" th:value="${elemento.id}"
+					th:text="${elemento.provincia}"></option>
+			</select>
+			<br>
+			<input type="submit" value="Enviar">
+		</form>
+		
+		<div id = "backup">
+			<a th:href="@{/backupCSV}">Realizar Backup CSV</a>
+			<a>Restaurar Backup CSV</a>
+		</div>
+
+
+		<table>
+			<table border="1">
+				<thead>
+					<tr>
+
+						<th>Nombre</th>
+						<th>Edad</th>
+						<th>Especie</th>
+						<th>Descripcion</th>
+						<th>Lugar</th>
+						<th>Opciones</th>
+					</tr>
+				</thead>
+
+				<tbody>
+
+					<tr th:each="elemento : ${atr_lista_mascotas}">
+
+						<td th:text="${elemento.nombre}"></td>
+						<td th:text="${elemento.edad} + ' Años'"></td>
+						<td th:text="${elemento.especie.especie}"></td>
+						<td th:text="${elemento.descripcion}"></td>
+						<td th:text="${elemento.provincia.provincia}"></td>
+
+						<td>
+							<a th:href="'/eliminarMascota/' + ${elemento.id}">Borrar</a>
+							<a th:href="'/modificarMascota/' + ${elemento.id}">Modificar</a>
+						</td>
+					</tr>
+
+				</tbody>
+			</table>
+	</main>
+
+	<div th:include="plantilla.html::pie"></div>
+
+</body>
+
+
+</html>

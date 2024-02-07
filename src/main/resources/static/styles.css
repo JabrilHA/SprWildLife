@@ -1,0 +1,177 @@
+:root{
+    --alturaCabezera:120px;
+    --alturaPie: 60px;
+    --paddingGeneral:5px;
+    --anchuraElemMenu:200px;
+
+    --colorVerdeOscuro: #007F5F;
+    --colorVerdeMedio: #2B9348;
+    --colorVErdeClaro: #55A630;
+    --colorLimaOscuro: #80B918;
+    --colorLimaMedio: #AACC00;
+    --colorLimaClaro: #D4D700;
+    --colorAmarillo: #EEEF20;
+    --colorAmarilloClaro: #FFFF3F;
+
+    --colorFondo:rgb(168, 194, 169);
+
+    --sizeFuenteMenu:22px;
+    --fuenteSerif : "Garamond";
+    --fuenteSans:"Helvetica";
+}
+
+*{
+    margin:0;
+    padding: 0;
+
+
+}
+
+/*ESTILOS DE LA CABECERA*/
+header{
+
+    background-color: var(--colorVerdeMedio);
+    height: var(--alturaCabezera);
+    padding:var(--paddingGeneral);
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /*esto es en el eje horizontal*/
+    align-items: flex-end; /*esto es en el eje vertical*/
+
+}
+
+#header_izq{
+    width: 400px;
+    
+    text-align: center;
+}
+
+#header_centro{
+    width: 100%;
+    
+    text-align: center;
+}
+
+#header_der{
+    width: 400px;
+    
+    text-align: center;
+}
+
+#header_der img{
+    
+    padding: var(--paddingGeneral);
+}
+
+#header_izq{
+    padding: var(--paddingGeneral);
+}
+
+
+h1{
+    font-size: 90px;
+    padding: var(--paddingGeneral);
+    color: var(--colorLimaClaro);
+    font-family: var(--fuenteSerif);
+}
+
+/*ESTILOS MENU y Main*/
+
+#contenedor_grid{
+
+    padding: var(--paddingGeneral);
+    height:100%;
+    display: flex;
+    
+    flex-direction: row;
+    justify-content: flex-start; /*esto es en el eje horizontal*/
+    align-items: flex-start; 
+    background-color:var(--colorFondo);
+    min-height: calc(100vh - (var(--alturaCabezera) + var(--alturaPie) + calc(4 * var(--paddingGeneral)))); /*calc se usa para calcular y 100vh altura vertical 100%*/
+    
+
+}
+
+
+#menu{
+    background-color: var(--colorVerdeMedio);
+    text-align: center;
+    width: 220px;
+    height: 280px;
+    margin: 15px;
+    border-radius: 2%;
+}
+
+#menu ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*esto es en el eje horizontal*/
+    align-items: center;
+    
+}
+
+
+
+#menu li{
+    padding: 10px;
+    list-style: none;
+}
+
+.enlace_menu{
+    
+    display: inline-block;
+    width: var(--anchuraElemMenu);
+
+
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: var(--sizeFuenteMenu);
+    color:var(--colorLimaClaro);
+}
+
+/*hover es para cuando pasas el raton por encima */
+.enlace_menu:hover{
+    background-color: var(--colorVerdeOscuro);
+    color: var(--colorAmarilloClaro);
+    
+}
+
+/*Cuando el enlace esta visitado*/
+.enlace_menu:visited{
+    color: var(--colorLimaClaro)
+}
+
+/*Cuando le clickas*/
+.enlace_menu:active{
+    background-color: var(--colorVErdeClaro);
+    color: var(--colorLimaClaro);
+}
+
+#cuerpo{
+
+    width: 100%;
+    min-height: calc(100vh - (var(--alturaCabezera) + var(--alturaPie) + calc(4 * var(--paddingGeneral))));;
+    margin: 15px;
+}
+
+/*Estilo pie*/
+
+footer{
+    background-color: var(--colorVerdeMedio);
+    height: var(--alturaPie);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+
+}
+
+footer p{
+    margin-bottom: var(--paddingGeneral);
+    font-size: 22px;
+    color: var(--colorLimaClaro);
+    font-weight: bold;
+}
+
+

@@ -1,0 +1,115 @@
+:root {
+	--paddingGeneral: 5px;
+
+	--colorVerdeOscuro: #007F5F;
+	--colorVerdeMedio: #2B9348;
+	--colorVErdeClaro: #55A630;
+	--colorLimaOscuro: #80B918;
+	--colorLimaMedio: #AACC00;
+	--colorLimaClaro: #D4D700;
+	--colorAmarillo: #EEEF20;
+	--colorAmarilloClaro: #FFFF3F;
+
+	--colorFondo: rgb(168, 194, 169);
+
+	--sizeFuenteMenu: 22px;
+	--fuenteSerif: "Garamond";
+	--fuenteSans: "Helvetica";
+}
+
+main {
+	padding: var(--paddingGeneral);
+	height: 100%;
+	background-color: var(--colorFondo);
+	min-height: calc(100vh - (var(--alturaCabezera) + var(--alturaPie) + calc(4 * var(--paddingGeneral))));
+	/*calc se usa para calcular y 100vh altura vertical 100%*/
+}
+
+div a{
+	background-color: var(--colorVErdeClaro);
+	padding: var(--paddingGeneral);
+	
+}
+
+
+/*ESTILOS FORMULARIO*/
+form {
+	background-color: var(--colorVerdeMedio);
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	max-width: 500px;
+	margin: 20px auto;
+
+}
+
+form label {
+	display: block;
+	margin-bottom: 8px;
+	color: rgb(233, 238, 232);
+
+}
+
+form input[type="text"],
+form select {
+	width: 100%;
+	padding: var(--paddingGeneral);
+	margin-bottom: 10px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+}
+
+form input[type="submit"] {
+	background-color: var(--colorLimaOscuro);
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+	background-color: var(--colorVerdeOscuro);
+	color: var(--colorAmarilloClaro);
+}
+
+/* Estilos para la tabla */
+table {
+	width: 90%;
+	border-collapse: collapse;
+	margin: auto;
+	margin-bottom: 20px;
+	padding: var(--paddingGeneral);
+
+
+}
+
+a {
+	text-decoration: none;
+	color: #333;
+	padding: 3px 5px;
+	border-radius: 4px;
+}
+
+a:hover {
+	background-color: var(--colorLimaOscuro)
+}
+
+
+table,
+th,
+td {
+	border: 1px solid rgb(200, 216, 192);
+}
+
+th,
+td {
+	padding: 8px 12px;
+	text-align: left;
+	color: rgb(23, 23, 23);
+}
+
+th {
+	background-color: var(--colorVerdeMedio);
+	color: rgb(233, 238, 232);
+}

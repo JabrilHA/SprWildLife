@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" th:href="@{/styles.css}" />
+	<link rel="stylesheet" th:href="@{/styles_grid.css}" />
+	<link rel="stylesheet" th:href="@{/styles_admin.css}" />
+	<title>Modificar</title>
+</head>
+
+<body>
+	<div th:include="plantilla.html::cabecera"></div>
+
+	<main>
+		<form th:action="@{/modificacionMascotaCreada}" th:object="${mascota}" method="post">
+			
+			<label for="nombre">ID</label>
+			<input type="text" name="id"  th:field="*{id}" readonly
+				th:value="${mascota.isPresent() ? mascota.get().id : 'ID no disponible'}" />
+				
+			<label for="nombre">Nombre</label>
+			<input type="text" name="nombre"  th:field="*{nombre}" required
+				th:value="${mascota.isPresent() ? mascota.get().nombre : 'Nombre no disponible'}" />
+			<br>
+
+			<label for="nombre">Edad</label>
+			<input type="text" name="edad" th:field="*{edad}" required
+				th:value="${mascota.isPresent() ? mascota.get().edad : 'Edad no disponible'}" />
+			<br>
+
+			<label for="nombre">Descripción</label>
+			<input type="text" name="descripcion" th:field="*{descripcion}" required
+				th:value="${mascota.isPresent() ? mascota.get().descripcion : 'Descripción no disponible'}" />
+			<br>
+
+			<label for="nombre">Imagen</label>
+			<input type="text" name="foto" th:field="*{foto}" required
+				th:value="${mascota.isPresent() ? mascota.get().foto : 'Imagen no disponible'}" />
+
+			<label for="especie">Especie</label>
+			<select name="especie.id" th:field="*{especie.id}" required>
+				<option th:each="elemento : ${atr_lista_especies}" th:value="${elemento.id}"
+					th:text="${elemento.especie}">
+				</option>
+			</select>
+
+			<label for="nombre">Provincia</label>
+			<select name="provincia.id" th:field="*{provincia.id}" required>
+				<option th:each="elemento :${atr_lista_provincias}" th:value="${elemento.id}"
+					th:text="${elemento.provincia}"></option>
+			</select>
+
+			<input type="submit" value="Enviar">
+
+		</form>
+
+
+	</main>
+
+	<div th:include="plantilla.html::pie"></div>
+</body>
+
+</html>
